@@ -328,5 +328,35 @@ namespace Bodega.Datos
                 MessageBox.Show("Algo Malo Pasó" + ex.Message, "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        public void BD_ActualizarStock_Restar_Materiales(int id, int stock)
+        {
+            SqlConnection cn = new SqlConnection(Conectar());
+            SqlCommand cmd = new SqlCommand("bodega.SP_ACTUALIZAR_STOCK_RESTAR", cn);
+            try
+            {
+                cmd.CommandTimeout = 20;
+                cmd.CommandType = CommandType.StoredProcedure;
+                //agregamos los parametros del precedimiento de almacenado
+
+                cmd.Parameters.AddWithValue("@vCodigo", id);
+                cmd.Parameters.AddWithValue("@vStock", stock);
+
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                cn.Close();
+
+                Guardar = true;
+            }
+            catch (Exception ex)
+            {
+                Guardar = false;
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+                MessageBox.Show("Algo Malo Pasó" + ex.Message, "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

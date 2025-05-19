@@ -69,5 +69,10 @@ namespace Bodega.Negocio
             BD_Materiales obj = new BD_Materiales();
             obj.BD_Actualizar_Estado_Materiales(id);
         }
+        public void RN_ActualizarStock_Restar_Materiales(int id, int stock)
+        {
+            BD_Materiales obj = new BD_Materiales();
+            obj.BD_ActualizarStock_Restar_Materiales(id, stock);
+        }
     }
 }

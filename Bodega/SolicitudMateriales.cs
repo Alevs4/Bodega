@@ -100,7 +100,7 @@ namespace Bodega
 
                             MessageBox.Show("Producto Agregado Correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Limpiar();
-                            this.Close();
+                           
                    
 
 
@@ -118,8 +118,12 @@ namespace Bodega
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
             AgregarHerramienta();
-            Principal principal = new Principal();
+            Principal principal = new Principal();  
             principal.Cargar_Salida_Materiales();
+            principal.ConfigurarListviewSalida();  
+            principal.LblId.Text = TxtId.Text;
+            principal.LblCantidad.Text = TxtCantidad.Text;
+            this.Close();
         }
     }
 }

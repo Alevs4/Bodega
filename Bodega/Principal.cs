@@ -1,4 +1,5 @@
-﻿using Bodega.Negocio;
+﻿using Bodega.Datos;
+using Bodega.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -191,7 +192,7 @@ namespace Bodega
             }
 
         }
-        private void LlenarListviewSalida(DataTable data)
+        public void LlenarListviewSalida(DataTable data)
         {
             ListaEntregaMateriales.Items.Clear();
 
@@ -199,6 +200,7 @@ namespace Bodega
             {
                 DataRow dr = data.Rows[i];
                 ListViewItem list = new ListViewItem(dr["id_salida"].ToString());
+                list.SubItems.Add(dr["id_prod"].ToString());
                 list.SubItems.Add(dr["nombre_materiales"].ToString());
                 list.SubItems.Add(dr["descripcion"].ToString());
                 list.SubItems.Add(dr["autorizadoPor"].ToString());
@@ -213,7 +215,7 @@ namespace Bodega
             }
             //Lbl_total.Text = Convert.ToString(ListaMateriales.Items.Count);
         }
-        private void ConfigurarListviewSalida()
+        public void ConfigurarListviewSalida()
         {
             var lis = ListaEntregaMateriales;
             lis.Columns.Clear();
@@ -225,6 +227,7 @@ namespace Bodega
             lis.HideSelection = false;
             // configuramos el ancho y nombres de las columnas
             lis.Columns.Add("Id ", 80, HorizontalAlignment.Left);
+            lis.Columns.Add("Id prod ",0, HorizontalAlignment.Left);
             lis.Columns.Add("Material", 250, HorizontalAlignment.Left);
             lis.Columns.Add("Marca", 120, HorizontalAlignment.Left);
             lis.Columns.Add("Autorizado por", 200, HorizontalAlignment.Left);
@@ -241,26 +244,64 @@ namespace Bodega
 
             if (ListaEntregaMateriales.SelectedItems.Count > 0)
             {
+
                 // Obtener el ítem seleccionado
-                ListViewItem selectedItem = ListaEntregaMateriales.SelectedItems[0];
-
+                ListViewItem selectedItem = ListaEntregaMateriales.SelectedItems[0];                 
+                string id = selectedItem.SubItems[1].Text;
+                string cantidad = selectedItem.SubItems[6].Text;
                 // Crear un array para almacenar los valores de los 8 subitems
-                string[] fila = new string[8];
+                string[] fila = new string[9];
 
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     fila[i] = selectedItem.SubItems[i].Text;
                 }
 
                 // Agregar la fila al DataGridView
-                DataSalidaMat.Rows.Add(fila);
+                DataSalidaMat.Rows.Add(fila); 
+                obj.RN_ActualizarStock_Restar_Materiales(Convert.ToInt32(id), Convert.ToInt32(cantidad)); 
                 obj.RN_Actualizar_Estado_Materiales(Convert.ToInt32(fila[0]));
+                if (BD_Materiales.Guardar == true)
+                {
+
+                    MessageBox.Show("Producto Agregado Correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 Cargar_Salida_Materiales();
+                ConfigurarListview();
+                Cargar_Materiales();
+
+
+
+                }
+
+             
             }
             else
             {
                 MessageBox.Show("Selecciona una fila de la Lista de Materiales.");
             }
+        }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+         Cargar_Salida_Materiales();
+        }
+
+        private void ListaEntregaMateriales_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListaEntregaMateriales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (ListaEntregaMateriales.SelectedItems.Count > 0)
+            //{
+            //    ListViewItem item = ListaEntregaMateriales.SelectedItems[0];
+
+            //    LblId.Text = item.SubItems[0].Text;
+            //    LblCantidad.Text = item.SubItems[5].Text;
+
+            //}
         }
     }
 }

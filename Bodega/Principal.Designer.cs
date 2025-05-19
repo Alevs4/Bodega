@@ -40,15 +40,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Materiales = new System.Windows.Forms.TabPage();
             this.ListaMateriales = new System.Windows.Forms.ListView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eliminarMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label9 = new System.Windows.Forms.Label();
             this.TxxtBuscarHerramienta = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.eliminarMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ListaEntregaMateriales = new System.Windows.Forms.ListView();
             this.DataSalidaMat = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,17 +54,22 @@
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ListaEntregaMateriales = new System.Windows.Forms.ListView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.BtnSolicitud = new Bodega.Componentes.BotonesRedondos();
             this.BtnEditar = new Bodega.Componentes.BotonesRedondos();
             this.BtnIngreso = new Bodega.Componentes.BotonesRedondos();
+            this.BtnActualizar = new Bodega.Componentes.BotonesRedondos();
             this.BtnConfirmar = new Bodega.Componentes.BotonesRedondos();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.Materiales.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataSalidaMat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,6 +178,21 @@
             this.ListaMateriales.UseCompatibleStateImageBehavior = false;
             this.ListaMateriales.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListaMateriales_MouseClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eliminarMaterialToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 28);
+            // 
+            // eliminarMaterialToolStripMenuItem
+            // 
+            this.eliminarMaterialToolStripMenuItem.Name = "eliminarMaterialToolStripMenuItem";
+            this.eliminarMaterialToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
+            this.eliminarMaterialToolStripMenuItem.Text = "Eliminar material";
+            this.eliminarMaterialToolStripMenuItem.Click += new System.EventHandler(this.eliminarMaterialToolStripMenuItem_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -198,8 +214,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.BtnConfirmar);
             this.tabPage2.Controls.Add(this.DataSalidaMat);
+            this.tabPage2.Controls.Add(this.BtnActualizar);
+            this.tabPage2.Controls.Add(this.BtnConfirmar);
             this.tabPage2.Controls.Add(this.ListaEntregaMateriales);
             this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
@@ -209,62 +226,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Confirmar Entrega Materiales";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1655, 652);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Ropa";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1655, 652);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Confirmar Entrega Ropa";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1655, 652);
-            this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Solicitud Colaciones";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eliminarMaterialToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 28);
-            // 
-            // eliminarMaterialToolStripMenuItem
-            // 
-            this.eliminarMaterialToolStripMenuItem.Name = "eliminarMaterialToolStripMenuItem";
-            this.eliminarMaterialToolStripMenuItem.Size = new System.Drawing.Size(191, 24);
-            this.eliminarMaterialToolStripMenuItem.Text = "Eliminar material";
-            this.eliminarMaterialToolStripMenuItem.Click += new System.EventHandler(this.eliminarMaterialToolStripMenuItem_Click);
-            // 
-            // ListaEntregaMateriales
-            // 
-            this.ListaEntregaMateriales.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ListaEntregaMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListaEntregaMateriales.HideSelection = false;
-            this.ListaEntregaMateriales.Location = new System.Drawing.Point(3, 56);
-            this.ListaEntregaMateriales.Name = "ListaEntregaMateriales";
-            this.ListaEntregaMateriales.Size = new System.Drawing.Size(817, 459);
-            this.ListaEntregaMateriales.TabIndex = 0;
-            this.ListaEntregaMateriales.UseCompatibleStateImageBehavior = false;
             // 
             // DataSalidaMat
             // 
@@ -382,6 +343,7 @@
             this.fecha.MinimumWidth = 6;
             this.fecha.Name = "fecha";
             this.fecha.ReadOnly = true;
+            this.fecha.Width = 125;
             // 
             // area
             // 
@@ -390,6 +352,50 @@
             this.area.MinimumWidth = 6;
             this.area.Name = "area";
             this.area.ReadOnly = true;
+            this.area.Width = 125;
+            // 
+            // ListaEntregaMateriales
+            // 
+            this.ListaEntregaMateriales.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListaEntregaMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListaEntregaMateriales.HideSelection = false;
+            this.ListaEntregaMateriales.Location = new System.Drawing.Point(3, 56);
+            this.ListaEntregaMateriales.Name = "ListaEntregaMateriales";
+            this.ListaEntregaMateriales.Size = new System.Drawing.Size(817, 459);
+            this.ListaEntregaMateriales.TabIndex = 0;
+            this.ListaEntregaMateriales.UseCompatibleStateImageBehavior = false;
+            this.ListaEntregaMateriales.SelectedIndexChanged += new System.EventHandler(this.ListaEntregaMateriales_SelectedIndexChanged);
+            this.ListaEntregaMateriales.Click += new System.EventHandler(this.ListaEntregaMateriales_Click);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1655, 652);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Ropa";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1655, 652);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Confirmar Entrega Ropa";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1655, 652);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Solicitud Colaciones";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // BtnSolicitud
             // 
@@ -451,6 +457,26 @@
             this.BtnIngreso.UseVisualStyleBackColor = false;
             this.BtnIngreso.Click += new System.EventHandler(this.BtnIngreso_Click);
             // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnActualizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnActualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnActualizar.BorderRadius = 15;
+            this.BtnActualizar.BorderSize = 0;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.Location = new System.Drawing.Point(531, 561);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(210, 57);
+            this.BtnActualizar.TabIndex = 120;
+            this.BtnActualizar.Text = "Actualizar Lista";
+            this.BtnActualizar.TextColor = System.Drawing.Color.White;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // BtnConfirmar
             // 
             this.BtnConfirmar.BackColor = System.Drawing.Color.Teal;
@@ -490,8 +516,8 @@
             this.tabControl1.ResumeLayout(false);
             this.Materiales.ResumeLayout(false);
             this.Materiales.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataSalidaMat)).EndInit();
             this.ResumeLayout(false);
 
@@ -529,5 +555,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
+        private Componentes.BotonesRedondos BtnActualizar;
     }
 }
