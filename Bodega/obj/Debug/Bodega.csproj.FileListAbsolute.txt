@@ -34,3 +34,7 @@ F:\Visual Studio 2022\Bodega\Bodega\obj\Debug\Bodega.csproj.CoreCompileInputs.ca
 F:\Visual Studio 2022\Bodega\Bodega\obj\Debug\Bodega.csproj.Up2Date
 F:\Visual Studio 2022\Bodega\Bodega\obj\Debug\Bodega.exe
 F:\Visual Studio 2022\Bodega\Bodega\obj\Debug\Bodega.pdb
+F:\Visual Studio 2022\Bodega\Bodega\bin\Debug\System.Drawing.Common.dll
+F:\Visual Studio 2022\Bodega\Bodega\bin\Debug\System.Drawing.Common.pdb
+F:\Visual Studio 2022\Bodega\Bodega\bin\Debug\System.Drawing.Common.xml
+F:\Visual Studio 2022\Bodega\Bodega\bin\Debug\DGV Printer.dll

@@ -39,30 +39,31 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Materiales = new System.Windows.Forms.TabPage();
+            this.BtnSolicitud = new Bodega.Componentes.BotonesRedondos();
+            this.BtnEditar = new Bodega.Componentes.BotonesRedondos();
             this.ListaMateriales = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eliminarMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnIngreso = new Bodega.Componentes.BotonesRedondos();
             this.label9 = new System.Windows.Forms.Label();
             this.TxxtBuscarHerramienta = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnImprimir = new Bodega.Componentes.BotonesRedondos();
             this.DataSalidaMat = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.autorizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.retirado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnActualizar = new Bodega.Componentes.BotonesRedondos();
+            this.BtnConfirmar = new Bodega.Componentes.BotonesRedondos();
             this.ListaEntregaMateriales = new System.Windows.Forms.ListView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.BtnSolicitud = new Bodega.Componentes.BotonesRedondos();
-            this.BtnEditar = new Bodega.Componentes.BotonesRedondos();
-            this.BtnIngreso = new Bodega.Componentes.BotonesRedondos();
-            this.BtnActualizar = new Bodega.Componentes.BotonesRedondos();
-            this.BtnConfirmar = new Bodega.Componentes.BotonesRedondos();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retirado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
@@ -147,7 +148,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 97);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1663, 685);
+            this.tabControl1.Size = new System.Drawing.Size(1702, 685);
             this.tabControl1.TabIndex = 1;
             // 
             // Materiales
@@ -166,6 +167,46 @@
             this.Materiales.TabIndex = 0;
             this.Materiales.Text = "Materiales";
             this.Materiales.UseVisualStyleBackColor = true;
+            // 
+            // BtnSolicitud
+            // 
+            this.BtnSolicitud.BackColor = System.Drawing.Color.Teal;
+            this.BtnSolicitud.BackgroundColor = System.Drawing.Color.Teal;
+            this.BtnSolicitud.BorderColor = System.Drawing.Color.Black;
+            this.BtnSolicitud.BorderRadius = 15;
+            this.BtnSolicitud.BorderSize = 2;
+            this.BtnSolicitud.FlatAppearance.BorderSize = 0;
+            this.BtnSolicitud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSolicitud.ForeColor = System.Drawing.Color.White;
+            this.BtnSolicitud.Location = new System.Drawing.Point(1140, 426);
+            this.BtnSolicitud.Name = "BtnSolicitud";
+            this.BtnSolicitud.Size = new System.Drawing.Size(204, 61);
+            this.BtnSolicitud.TabIndex = 98;
+            this.BtnSolicitud.Text = "Solicitud de Materiales";
+            this.BtnSolicitud.TextColor = System.Drawing.Color.White;
+            this.BtnSolicitud.UseVisualStyleBackColor = false;
+            this.BtnSolicitud.Click += new System.EventHandler(this.BtnSolicitud_Click);
+            // 
+            // BtnEditar
+            // 
+            this.BtnEditar.BackColor = System.Drawing.Color.Teal;
+            this.BtnEditar.BackgroundColor = System.Drawing.Color.Teal;
+            this.BtnEditar.BorderColor = System.Drawing.Color.Black;
+            this.BtnEditar.BorderRadius = 15;
+            this.BtnEditar.BorderSize = 2;
+            this.BtnEditar.FlatAppearance.BorderSize = 0;
+            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditar.ForeColor = System.Drawing.Color.White;
+            this.BtnEditar.Location = new System.Drawing.Point(1140, 284);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(204, 61);
+            this.BtnEditar.TabIndex = 97;
+            this.BtnEditar.Text = "Ingreso Material Existente";
+            this.BtnEditar.TextColor = System.Drawing.Color.White;
+            this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // ListaMateriales
             // 
@@ -193,6 +234,26 @@
             this.eliminarMaterialToolStripMenuItem.Text = "Eliminar material";
             this.eliminarMaterialToolStripMenuItem.Click += new System.EventHandler(this.eliminarMaterialToolStripMenuItem_Click);
             // 
+            // BtnIngreso
+            // 
+            this.BtnIngreso.BackColor = System.Drawing.Color.Green;
+            this.BtnIngreso.BackgroundColor = System.Drawing.Color.Green;
+            this.BtnIngreso.BorderColor = System.Drawing.Color.Black;
+            this.BtnIngreso.BorderRadius = 15;
+            this.BtnIngreso.BorderSize = 2;
+            this.BtnIngreso.FlatAppearance.BorderSize = 0;
+            this.BtnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnIngreso.ForeColor = System.Drawing.Color.White;
+            this.BtnIngreso.Location = new System.Drawing.Point(1140, 144);
+            this.BtnIngreso.Name = "BtnIngreso";
+            this.BtnIngreso.Size = new System.Drawing.Size(204, 61);
+            this.BtnIngreso.TabIndex = 95;
+            this.BtnIngreso.Text = "Ingreso Nuevo Material";
+            this.BtnIngreso.TextColor = System.Drawing.Color.White;
+            this.BtnIngreso.UseVisualStyleBackColor = false;
+            this.BtnIngreso.Click += new System.EventHandler(this.BtnIngreso_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -214,6 +275,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BtnImprimir);
             this.tabPage2.Controls.Add(this.DataSalidaMat);
             this.tabPage2.Controls.Add(this.BtnActualizar);
             this.tabPage2.Controls.Add(this.BtnConfirmar);
@@ -222,10 +284,30 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1655, 652);
+            this.tabPage2.Size = new System.Drawing.Size(1694, 652);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Confirmar Entrega Materiales";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // BtnImprimir
+            // 
+            this.BtnImprimir.BackColor = System.Drawing.Color.Blue;
+            this.BtnImprimir.BackgroundColor = System.Drawing.Color.Blue;
+            this.BtnImprimir.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnImprimir.BorderRadius = 15;
+            this.BtnImprimir.BorderSize = 0;
+            this.BtnImprimir.FlatAppearance.BorderSize = 0;
+            this.BtnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnImprimir.ForeColor = System.Drawing.Color.White;
+            this.BtnImprimir.Location = new System.Drawing.Point(789, 561);
+            this.BtnImprimir.Name = "BtnImprimir";
+            this.BtnImprimir.Size = new System.Drawing.Size(210, 57);
+            this.BtnImprimir.TabIndex = 121;
+            this.BtnImprimir.Text = "Imprimir";
+            this.BtnImprimir.TextColor = System.Drawing.Color.White;
+            this.BtnImprimir.UseVisualStyleBackColor = false;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // DataSalidaMat
             // 
@@ -252,9 +334,8 @@
             this.DataSalidaMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataSalidaMat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.Material,
             this.marca,
-            this.autorizado,
+            this.Material,
             this.retirado,
             this.cantidad,
             this.fecha,
@@ -277,82 +358,48 @@
             this.DataSalidaMat.RowHeadersWidth = 51;
             this.DataSalidaMat.RowTemplate.Height = 24;
             this.DataSalidaMat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataSalidaMat.Size = new System.Drawing.Size(768, 459);
+            this.DataSalidaMat.Size = new System.Drawing.Size(771, 459);
             this.DataSalidaMat.TabIndex = 118;
             // 
-            // Id
+            // BtnActualizar
             // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Id.FillWeight = 85.5615F;
-            this.Id.HeaderText = "id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 80;
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnActualizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnActualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnActualizar.BorderRadius = 15;
+            this.BtnActualizar.BorderSize = 0;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.Location = new System.Drawing.Point(531, 561);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(210, 57);
+            this.BtnActualizar.TabIndex = 120;
+            this.BtnActualizar.Text = "Actualizar Lista";
+            this.BtnActualizar.TextColor = System.Drawing.Color.White;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
-            // Material
+            // BtnConfirmar
             // 
-            this.Material.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Material.FillWeight = 114.4385F;
-            this.Material.HeaderText = "Nombre Material";
-            this.Material.MinimumWidth = 6;
-            this.Material.Name = "Material";
-            this.Material.ReadOnly = true;
-            this.Material.Width = 250;
-            // 
-            // marca
-            // 
-            this.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.marca.HeaderText = "Marca";
-            this.marca.MinimumWidth = 6;
-            this.marca.Name = "marca";
-            this.marca.ReadOnly = true;
-            this.marca.Width = 120;
-            // 
-            // autorizado
-            // 
-            this.autorizado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.autorizado.HeaderText = "Autorizado Por";
-            this.autorizado.MinimumWidth = 6;
-            this.autorizado.Name = "autorizado";
-            this.autorizado.ReadOnly = true;
-            this.autorizado.Width = 200;
-            // 
-            // retirado
-            // 
-            this.retirado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.retirado.HeaderText = "Retirado Por";
-            this.retirado.MinimumWidth = 6;
-            this.retirado.Name = "retirado";
-            this.retirado.ReadOnly = true;
-            this.retirado.Width = 200;
-            // 
-            // cantidad
-            // 
-            this.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.MinimumWidth = 6;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 80;
-            // 
-            // fecha
-            // 
-            this.fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.MinimumWidth = 6;
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Width = 125;
-            // 
-            // area
-            // 
-            this.area.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.area.HeaderText = "Area";
-            this.area.MinimumWidth = 6;
-            this.area.Name = "area";
-            this.area.ReadOnly = true;
-            this.area.Width = 125;
+            this.BtnConfirmar.BackColor = System.Drawing.Color.Teal;
+            this.BtnConfirmar.BackgroundColor = System.Drawing.Color.Teal;
+            this.BtnConfirmar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnConfirmar.BorderRadius = 15;
+            this.BtnConfirmar.BorderSize = 0;
+            this.BtnConfirmar.FlatAppearance.BorderSize = 0;
+            this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConfirmar.ForeColor = System.Drawing.Color.White;
+            this.BtnConfirmar.Location = new System.Drawing.Point(266, 561);
+            this.BtnConfirmar.Name = "BtnConfirmar";
+            this.BtnConfirmar.Size = new System.Drawing.Size(210, 57);
+            this.BtnConfirmar.TabIndex = 119;
+            this.BtnConfirmar.Text = "Confirmar Entrega Material";
+            this.BtnConfirmar.TextColor = System.Drawing.Color.White;
+            this.BtnConfirmar.UseVisualStyleBackColor = false;
+            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // ListaEntregaMateriales
             // 
@@ -397,111 +444,80 @@
             this.tabPage4.Text = "Solicitud Colaciones";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // BtnSolicitud
+            // printDocument1
             // 
-            this.BtnSolicitud.BackColor = System.Drawing.Color.Teal;
-            this.BtnSolicitud.BackgroundColor = System.Drawing.Color.Teal;
-            this.BtnSolicitud.BorderColor = System.Drawing.Color.Black;
-            this.BtnSolicitud.BorderRadius = 15;
-            this.BtnSolicitud.BorderSize = 2;
-            this.BtnSolicitud.FlatAppearance.BorderSize = 0;
-            this.BtnSolicitud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSolicitud.ForeColor = System.Drawing.Color.White;
-            this.BtnSolicitud.Location = new System.Drawing.Point(1140, 426);
-            this.BtnSolicitud.Name = "BtnSolicitud";
-            this.BtnSolicitud.Size = new System.Drawing.Size(204, 61);
-            this.BtnSolicitud.TabIndex = 98;
-            this.BtnSolicitud.Text = "Solicitud de Materiales";
-            this.BtnSolicitud.TextColor = System.Drawing.Color.White;
-            this.BtnSolicitud.UseVisualStyleBackColor = false;
-            this.BtnSolicitud.Click += new System.EventHandler(this.BtnSolicitud_Click);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // BtnEditar
+            // Id
             // 
-            this.BtnEditar.BackColor = System.Drawing.Color.Teal;
-            this.BtnEditar.BackgroundColor = System.Drawing.Color.Teal;
-            this.BtnEditar.BorderColor = System.Drawing.Color.Black;
-            this.BtnEditar.BorderRadius = 15;
-            this.BtnEditar.BorderSize = 2;
-            this.BtnEditar.FlatAppearance.BorderSize = 0;
-            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditar.ForeColor = System.Drawing.Color.White;
-            this.BtnEditar.Location = new System.Drawing.Point(1140, 284);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(204, 61);
-            this.BtnEditar.TabIndex = 97;
-            this.BtnEditar.Text = "Ingreso Material Existente";
-            this.BtnEditar.TextColor = System.Drawing.Color.White;
-            this.BtnEditar.UseVisualStyleBackColor = false;
-            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Id.FillWeight = 85.5615F;
+            this.Id.HeaderText = "id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 60;
             // 
-            // BtnIngreso
+            // marca
             // 
-            this.BtnIngreso.BackColor = System.Drawing.Color.Green;
-            this.BtnIngreso.BackgroundColor = System.Drawing.Color.Green;
-            this.BtnIngreso.BorderColor = System.Drawing.Color.Black;
-            this.BtnIngreso.BorderRadius = 15;
-            this.BtnIngreso.BorderSize = 2;
-            this.BtnIngreso.FlatAppearance.BorderSize = 0;
-            this.BtnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnIngreso.ForeColor = System.Drawing.Color.White;
-            this.BtnIngreso.Location = new System.Drawing.Point(1140, 144);
-            this.BtnIngreso.Name = "BtnIngreso";
-            this.BtnIngreso.Size = new System.Drawing.Size(204, 61);
-            this.BtnIngreso.TabIndex = 95;
-            this.BtnIngreso.Text = "Ingreso Nuevo Material";
-            this.BtnIngreso.TextColor = System.Drawing.Color.White;
-            this.BtnIngreso.UseVisualStyleBackColor = false;
-            this.BtnIngreso.Click += new System.EventHandler(this.BtnIngreso_Click);
+            this.marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.marca.HeaderText = "Id Prod";
+            this.marca.MinimumWidth = 6;
+            this.marca.Name = "marca";
+            this.marca.ReadOnly = true;
+            this.marca.Width = 60;
             // 
-            // BtnActualizar
+            // Material
             // 
-            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnActualizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnActualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnActualizar.BorderRadius = 15;
-            this.BtnActualizar.BorderSize = 0;
-            this.BtnActualizar.FlatAppearance.BorderSize = 0;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
-            this.BtnActualizar.Location = new System.Drawing.Point(531, 561);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(210, 57);
-            this.BtnActualizar.TabIndex = 120;
-            this.BtnActualizar.Text = "Actualizar Lista";
-            this.BtnActualizar.TextColor = System.Drawing.Color.White;
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            this.Material.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Material.FillWeight = 114.4385F;
+            this.Material.HeaderText = "Nombre Material";
+            this.Material.MinimumWidth = 6;
+            this.Material.Name = "Material";
+            this.Material.ReadOnly = true;
+            this.Material.Width = 230;
             // 
-            // BtnConfirmar
+            // retirado
             // 
-            this.BtnConfirmar.BackColor = System.Drawing.Color.Teal;
-            this.BtnConfirmar.BackgroundColor = System.Drawing.Color.Teal;
-            this.BtnConfirmar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnConfirmar.BorderRadius = 15;
-            this.BtnConfirmar.BorderSize = 0;
-            this.BtnConfirmar.FlatAppearance.BorderSize = 0;
-            this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.BtnConfirmar.Location = new System.Drawing.Point(266, 561);
-            this.BtnConfirmar.Name = "BtnConfirmar";
-            this.BtnConfirmar.Size = new System.Drawing.Size(210, 57);
-            this.BtnConfirmar.TabIndex = 119;
-            this.BtnConfirmar.Text = "Confirmar Entrega Material";
-            this.BtnConfirmar.TextColor = System.Drawing.Color.White;
-            this.BtnConfirmar.UseVisualStyleBackColor = false;
-            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
+            this.retirado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.retirado.HeaderText = "Retirado Por";
+            this.retirado.MinimumWidth = 6;
+            this.retirado.Name = "retirado";
+            this.retirado.ReadOnly = true;
+            this.retirado.Width = 200;
+            // 
+            // cantidad
+            // 
+            this.cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.MinimumWidth = 6;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 60;
+            // 
+            // fecha
+            // 
+            this.fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.MinimumWidth = 6;
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.Width = 125;
+            // 
+            // area
+            // 
+            this.area.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.area.HeaderText = "Area";
+            this.area.MinimumWidth = 6;
+            this.area.Name = "area";
+            this.area.ReadOnly = true;
+            this.area.Width = 125;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1730, 804);
+            this.ClientSize = new System.Drawing.Size(1719, 821);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -547,14 +563,15 @@
         private System.Windows.Forms.ListView ListaEntregaMateriales;
         private System.Windows.Forms.DataGridView DataSalidaMat;
         private Componentes.BotonesRedondos BtnConfirmar;
+        private Componentes.BotonesRedondos BtnActualizar;
+        private Componentes.BotonesRedondos BtnImprimir;
+        private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autorizado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn retirado;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
-        private Componentes.BotonesRedondos BtnActualizar;
     }
 }

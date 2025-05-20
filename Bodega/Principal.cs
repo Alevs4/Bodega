@@ -1,10 +1,12 @@
 ﻿using Bodega.Datos;
 using Bodega.Negocio;
+using DGVPrinterHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -16,9 +18,15 @@ namespace Bodega
 {
     public partial class Principal : Form
     {
+
+        private PrintDocument printDocument = new PrintDocument();
+
+        // Índice de la fila actual al imprimir
+        private int rowIndex = 0;
         public Principal()
         {
             InitializeComponent();
+            //PrintDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -202,8 +210,6 @@ namespace Bodega
                 ListViewItem list = new ListViewItem(dr["id_salida"].ToString());
                 list.SubItems.Add(dr["id_prod"].ToString());
                 list.SubItems.Add(dr["nombre_materiales"].ToString());
-                list.SubItems.Add(dr["descripcion"].ToString());
-                list.SubItems.Add(dr["autorizadoPor"].ToString());
                 list.SubItems.Add(dr["retiradoPor"].ToString());
                 list.SubItems.Add(dr["cantidad"].ToString());
                 list.SubItems.Add(dr["fecha"].ToString());
@@ -227,10 +233,8 @@ namespace Bodega
             lis.HideSelection = false;
             // configuramos el ancho y nombres de las columnas
             lis.Columns.Add("Id ", 80, HorizontalAlignment.Left);
-            lis.Columns.Add("Id prod ",0, HorizontalAlignment.Left);
+            lis.Columns.Add("Id Prod", 80, HorizontalAlignment.Left);
             lis.Columns.Add("Material", 250, HorizontalAlignment.Left);
-            lis.Columns.Add("Marca", 120, HorizontalAlignment.Left);
-            lis.Columns.Add("Autorizado por", 200, HorizontalAlignment.Left);
             lis.Columns.Add("Retirado por", 200, HorizontalAlignment.Left);
             lis.Columns.Add("Cantidad", 80, HorizontalAlignment.Left);
             lis.Columns.Add("Fecha", 100, HorizontalAlignment.Left);
@@ -248,11 +252,11 @@ namespace Bodega
                 // Obtener el ítem seleccionado
                 ListViewItem selectedItem = ListaEntregaMateriales.SelectedItems[0];                 
                 string id = selectedItem.SubItems[1].Text;
-                string cantidad = selectedItem.SubItems[6].Text;
+                string cantidad = selectedItem.SubItems[4].Text;
                 // Crear un array para almacenar los valores de los 8 subitems
-                string[] fila = new string[9];
+                string[] fila = new string[7];
 
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 7; i++)
                 {
                     fila[i] = selectedItem.SubItems[i].Text;
                 }
@@ -303,5 +307,29 @@ namespace Bodega
 
             //}
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+        }
+        
+
+void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter(); // Ensure the DGVPrinterHelper library is referenced in your project
+            printer.Title = "Solicitud de Materiales"; // Example title
+            printer.SubTitle = "Listado de materiales disponibles"; // Example subtitle
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "Bodega"; // Example footer
+            printer.FooterSpacing = 15;
+
+            printer.PrintDataGridView(DataSalidaMat); // Ensure DataSalidaMat is a DataGridView
+        }
+
+ 
     }
 }

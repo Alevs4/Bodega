@@ -63,15 +63,14 @@ namespace Bodega
         {
             if (LblStock.Text == "0")
             {
-                MessageBox.Show("No queda stock del producto seleccionado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No queda stock del producto seleccionado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);return;
             }
-            else
-            {
+   
 
                 if (Convert.ToInt32(TxtCantidad.Text) > Convert.ToInt32(LblStock.Text))
                 {
-                    MessageBox.Show("La cantidad es Superior al stock del producto seleccionado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    MessageBox.Show("La cantidad es Superior al stock del producto seleccionado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);return;
+            }
                 if (TxtMaterial.Text == "" || CboPersonal.Text == "" || TxtMarca.Text == "" || TxtCantidad.Text == "" || TxtRecepcion.Text == "")
                 {
 
@@ -112,7 +111,7 @@ namespace Bodega
                         MessageBox.Show(ex.Message);
                     }
                 }
-            }
+            
         }
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
@@ -121,8 +120,7 @@ namespace Bodega
             Principal principal = new Principal();  
             principal.Cargar_Salida_Materiales();
             principal.ConfigurarListviewSalida();  
-            principal.LblId.Text = TxtId.Text;
-            principal.LblCantidad.Text = TxtCantidad.Text;
+   
             this.Close();
         }
     }
